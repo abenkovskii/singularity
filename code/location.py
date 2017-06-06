@@ -22,11 +22,13 @@ import g
 import buyable
 from buyable import cash, cpu, labor
 
+# !!!
 # Currently, each one gets a 20% bonus or its inverse, a 16.6% penalty.
 # This will probably need to be adjusted later.
 bonus_levels = dict(cpu = 1.2, stealth = 1.2, thrift = 1.2, speed = 1.2)
 penalty_levels = dict((k,1/v) for k,v in bonus_levels.iteritems())
 
+# !!!
 # Here are the six modifier pairs that get assigned at random on game start.
 bonus, penalty = True, False
 modifier_sets = [dict(     cpu = bonus, stealth = penalty ),
@@ -69,6 +71,7 @@ class Location(buyable.BuyableClass):
     had_last_discovery = property(lambda self: g.pl.last_discovery == self)
     had_prev_discovery = property(lambda self: g.pl.prev_discovery == self)
 
+# !!!
     def discovery_bonus(self):
         discovery_bonus = 1
         if self.had_last_discovery:
@@ -79,6 +82,7 @@ class Location(buyable.BuyableClass):
             discovery_bonus /= self.modifiers["stealth"]
         return int(discovery_bonus * 100)
 
+# !!!
     def modify_cost(self, cost):
         if "thrift" in self.modifiers:
             mod = self.modifiers["thrift"]
@@ -93,7 +97,7 @@ class Location(buyable.BuyableClass):
             # Invert it and apply to the labor cost.
             cost[labor] = int(cost[labor] / mod)
 
-
+# !!! 
     def modify_maintenance(self, maintenance):
         if "thrift" in self.modifiers:
             mod = self.modifiers["thrift"]
@@ -105,6 +109,7 @@ class Location(buyable.BuyableClass):
         self.bases.append(base)
         base.location = self
 
+# !!!
         self.modify_cost(base.total_cost)
         self.modify_cost(base.cost_left)
         self.modify_maintenance(base.maintenance)
