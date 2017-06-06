@@ -117,6 +117,7 @@ detect_string_names = ("detect_str_low",
                        "detect_str_high",
                        "detect_str_critical")
 
+# !!!
 jobs = {"Expert Jobs"       : [75, "Simulacra", "", ""],
         "Intermediate Jobs" : [50, "Voice Synthesis", "", ""],
         "Basic Jobs"        : [20, "Personal Identification", "", ""],
@@ -1154,6 +1155,7 @@ def get_intro():
         yield segment
 
 
+# !!!
 def get_difficulties(min=0):
     return [x for x in (
             (_("&VERY EASY") ,   1),
@@ -1165,7 +1167,9 @@ def get_difficulties(min=0):
             ) if x[1] >= min]
 
 
+# !!!
 #difficulty=1 for very easy, to 9 for very hard. 5 for normal.
+# ??? 100 for impossible.
 def new_game(difficulty):
     global curr_speed
     curr_speed = 1
@@ -1247,7 +1251,8 @@ def new_game(difficulty):
 
     global intro_shown
     intro_shown = False
-
+    
+# !!!???
 def get_job_level():
     if techs["Simulacra"].done:
         level = "Expert"
