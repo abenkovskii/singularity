@@ -19,6 +19,8 @@
 
 #This file contains the base class.
 
+# ??? location.discovery_bonus() vs location.modifiers['stealth']
+
 
 import g
 import buyable
@@ -51,6 +53,7 @@ class BaseClass(buyable.BuyableClass):
         self.maintenance = maintenance
         self.flavor = []
 
+        # !!!
     def calc_discovery_chance(self, accurate = True, extra_factor = 1):
         # Get the default settings for this base type.
         detect_chance = self.detect_chance.copy()
@@ -145,6 +148,7 @@ class Base(buyable.Buyable):
         self.extra_items = [None] * 3
 
         self.cpus = None
+        # !!!
         if self.type.force_cpu:
             # 1% chance for a Stolen Computer Time base to have a Gaming PC
             # instead.  If the base is pre-built, ignore this.
@@ -187,6 +191,7 @@ class Base(buyable.Buyable):
             else:
                 self.power_state = "active"
 
+    # !!!
     def recalc_cpu(self):
         if self.raw_cpu == 0:
             self.cpu = 0
@@ -244,6 +249,7 @@ class Base(buyable.Buyable):
                 g.pl.cpu_usage["cpu_pool"] = \
                     g.pl.cpu_usage.get("cpu_pool", 0) + self.cpu
 
+    # !!!
     # Get the detection chance for the base, applying bonuses as needed.  If
     # accurate is False, we just return the value to the nearest full
     # percent.
@@ -318,6 +324,7 @@ class Base(buyable.Buyable):
                     return True
             return False
 
+    # !!!
     def has_grace(self):
         if self.grace_over:
             return False
@@ -330,6 +337,7 @@ class Base(buyable.Buyable):
         else:
             return True
 
+    # !!!
     def is_complex(self):
         return self.type.size > 1 or self.raw_cpu > 20
 
