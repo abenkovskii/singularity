@@ -148,6 +148,7 @@ class Buyable(object):
         return self.min_valid(self._percent_complete())
 
 
+    # ???
     def calculate_work(self, cash_available=None, cpu_available=None, time=0):
         """Given an amount of available resources, calculates and returns the
            amount that would be spent and the progress towards completion."""
