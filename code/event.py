@@ -35,6 +35,9 @@ class Event(object):
         self.chance = chance
         self.unique = unique
         self.triggered = 0
+        
+        
+# !!!
     def trigger(self):
         g.map_screen.show_message(self.description)
 
