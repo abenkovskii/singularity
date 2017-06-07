@@ -58,6 +58,7 @@ class Tech(buyable.Buyable):
         super(Tech, self).finish()
         self.gain_tech()
 
+# !!!
     def gain_tech(self):
         #give the effect of the tech
         if self.tech_type == "interest":
