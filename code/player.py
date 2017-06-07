@@ -27,6 +27,7 @@ import g
 from graphics import g as gg
 from buyable import cash, cpu
 
+#!!!
 group_list = ("news", "science", "covert", "public")
 class Group(object):
     discover_suspicion = 1000
@@ -79,6 +80,7 @@ class Group(object):
 class DryRunInfo(object):
     pass
 
+# !!!
 class Player(object):
     intro_shown = False
     def __init__(self, cash=0, time_sec=0, time_min=0, time_hour=0, time_day=0,
